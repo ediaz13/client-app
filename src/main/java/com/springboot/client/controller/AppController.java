@@ -3,7 +3,6 @@ package com.springboot.client.controller;
 import com.springboot.client.models.Message;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -12,18 +11,16 @@ import java.util.Map;
 public class AppController {
     @GetMapping("/list")
     public List<Message> list() {
-        return Arrays.asList(
-                new Message("Hello, World!", "John"),
-                new Message("Hi, there!", "Tom")
-        );
+        return Collections.singletonList(new Message("Hello, World"));
     }
 
     @PostMapping("/create")
     public Message create(@RequestBody Message message) {
-        System.out.println("Creating message: " + message.getText() + " from " + message.getUser());
+        System.out.println("Creating message: " + message);
         return message;
     }
 
+    @GetMapping("/authorized")
     public Map<String, String> authorized(@RequestParam String code) {
         return Collections.singletonMap("code", code);
     }
