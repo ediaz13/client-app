@@ -9,9 +9,9 @@ import java.util.Map;
 
 @RestController
 public class AppController {
-    @GetMapping("/list")
-    public List<Message> list() {
-        return Collections.singletonList(new Message("Hello, World"));
+    @GetMapping("/hello")
+    public List<Message> hello() {
+        return Collections.singletonList(new Message("Hello, World Darling"));
     }
 
     @PostMapping("/create")
